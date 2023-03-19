@@ -1,6 +1,6 @@
 import { checkNumInput } from "./CheckNumInput";
 
-export const forms = (state: object): void => {
+export const forms = (): void => {
 
   const forms: NodeListOf<HTMLFormElement> = document.querySelectorAll('form');
   const inputs: NodeListOf<HTMLInputElement> = document.querySelectorAll('input');
@@ -50,11 +50,6 @@ export const forms = (state: object): void => {
       form.appendChild(statusMessage);
 
       const formData: FormData = new FormData(form);
-      if (form.getAttribute('data-calc') === 'end') {
-        for (const keyForm in state) {
-          formData.append(keyForm, state[keyForm]);
-        }
-      }
 
       postData('https://dummyjson.com/users/add', formData)
         .then((response) => {
