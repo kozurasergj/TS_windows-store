@@ -5,4 +5,4 @@ window.addEventListener('DOMContentLoaded', () => {
   let modalState = {};
 
   forms(modalState);
-});
+
