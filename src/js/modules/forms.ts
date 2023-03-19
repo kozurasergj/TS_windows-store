@@ -17,7 +17,7 @@ export const forms = (state: object): void => {
     failure: 'Что-то пошло не так',
   }
 
-  const postData = async (url: string, data: any) => {
+  const postData = async (url: string, data: FormData) => {
     const status = document.querySelector('.status') as HTMLElement;
     status.textContent = message.loading;
 
