@@ -1,5 +1,4 @@
 export const modals = () => {
-
   interface BindModalParams {
     triggersSelector: string;
     modalSelector: string;
