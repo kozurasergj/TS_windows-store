@@ -33,6 +33,7 @@ export const modals = () => {
     };
 
     const closeModal = (modal: HTMLElement): void => {
+      closeAllModals();
       modal.style.display = 'none';
       document.body.classList.remove('modal-open');
       document.body.style.marginRight = `0px`;
@@ -41,6 +42,7 @@ export const modals = () => {
     document.addEventListener('keydown', (event): void => {
       if (event.code === 'Escape') {
         closeModal(modal);
+        closeAllModals();
       }
     });
 
