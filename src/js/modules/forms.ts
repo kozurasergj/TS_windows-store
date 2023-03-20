@@ -1,7 +1,6 @@
 import { checkNumInput } from "./CheckNumInput";
 
-export const forms = (): void => {
-
+export const forms = (state: { [key: string]: string }): void => {
   const forms: NodeListOf<HTMLFormElement> = document.querySelectorAll('form');
   const inputs: NodeListOf<HTMLInputElement> = document.querySelectorAll('input');
   checkNumInput(`input[name="user_phone"]`);
@@ -50,6 +49,14 @@ export const forms = (): void => {
       form.appendChild(statusMessage);
 
       const formData: FormData = new FormData(form);
+      let key: string;
+
+      if (form.getAttribute('data-calc') === 'end') {
+        console.log('DATA FOR ORDER WINDOWS :)', state);
+        for (key in state) {
+          formData.append(key, state[key])
+        }
+      }
 
       postData('https://dummyjson.com/users/add', formData)
         .then((response) => {

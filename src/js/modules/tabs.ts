@@ -58,4 +58,5 @@ export const tabs = ({ headerSelector, tabsSelector, contentSelector, activeClas
       });
     }
   });
+  
 };
