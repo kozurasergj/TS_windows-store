@@ -1,4 +1,4 @@
-import { modals, forms, tabs, changeModalState } from "./modules";
+import { modals, forms, tabs, changeModalState,images } from "./modules";
 
 window.addEventListener('DOMContentLoaded', () => {
   let modalState = {};
@@ -26,4 +26,5 @@ window.addEventListener('DOMContentLoaded', () => {
     display: 'inline-block',
   });
   forms(modalState);
+  images();
 });
