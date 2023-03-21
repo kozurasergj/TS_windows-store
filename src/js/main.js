@@ -1,7 +1,9 @@
-import { modals, forms, tabs, changeModalState,images } from "./modules";
+import { modals, forms, tabs, changeModalState, timer,images } from "./modules";
 
 window.addEventListener('DOMContentLoaded', () => {
   let modalState = {};
+  const deadline = '2023-07-06';
+
   changeModalState(modalState);
   modals();
   tabs({
@@ -25,6 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
     activeClass: 'do_image_more',
     display: 'inline-block',
   });
-  forms(modalState);
+  forms(modalState);  
   images();
+  timer('.container1', deadline);
 });
