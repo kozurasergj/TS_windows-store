@@ -18,14 +18,16 @@ export const images = (): void => {
     const target = event.target as HTMLElement;;
     const parentNode = target.parentNode as HTMLElement;
 
-    if (target && target.classList.contains('preview')) {
+    if (target && target.classList?.contains('preview')) {
       imgPopup.style.display = 'flex';
-      const path = parentNode.getAttribute('href');
-      if (path) {
-        bigImage.setAttribute('src', path);
+      const imgPath = parentNode?.getAttribute('href');
+      if (imgPath) {
+        const numberImg = imgPath?.replace('./src/assets/img/our_works/big_img/', '');
+        const mainPath = '/big_img/';
+        bigImage.setAttribute('src', `${mainPath}${numberImg}`);
       }
     }
-    if (target && target.matches('div.popup_photo')) {
+    if (target && target?.matches('div.popup_photo')) {
       imgPopup.style.display = 'none';
     }
   });
