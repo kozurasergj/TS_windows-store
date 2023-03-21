@@ -1,7 +1,9 @@
-import { modals, forms, tabs, changeModalState } from "./modules";
+import { modals, forms, tabs, changeModalState,timer } from "./modules";
 
 window.addEventListener('DOMContentLoaded', () => {
   let modalState = {};
+  const deadline = '2023-07-06';
+  
   changeModalState(modalState);
   modals();
   tabs({
@@ -26,4 +28,5 @@ window.addEventListener('DOMContentLoaded', () => {
     display: 'inline-block',
   });
   forms(modalState);
+  timer('.container1', deadline);
 });

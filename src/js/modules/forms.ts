@@ -10,6 +10,7 @@ export const forms = (state: { [key: string]: string }): void => {
     success: string;
     failure: string;
   }
+
   const message: Message = {
     loading: 'Загрузка...',
     success: 'Спасибо! Скоро мы с вами свяжемся',
@@ -22,9 +23,15 @@ export const forms = (state: { [key: string]: string }): void => {
 
     const response = await fetch(url, {
       method: 'POST',
-      body: data,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name:'Koziura Sergey',
+        age:'21',
+        isMarried: false,
+        data: data
+      }),
     });
-    return await response.text();
+    return await response.json();
   };
 
   const clearInputs = (): void => {
