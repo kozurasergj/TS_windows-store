@@ -61,8 +61,12 @@ export const modals = () => {
 
   const showModalByTime = (selector: string, time: number): void => {
     setTimeout(() => {
-      const modal = document.querySelector(selector) as HTMLElement;
-      modal.style.display = 'block';
+      const modals = document.querySelectorAll<HTMLElement>(selector);
+      modals.forEach(modal => {
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+      });
+      modals[0].style.display = 'block';
       document.body.classList.add('modal-open');
     }, time);
   };
@@ -114,5 +118,5 @@ export const modals = () => {
     closeClickOverlayModal: false,
   });
 
-  showModalByTime('.popup', 60000);
+  showModalByTime('.popup', 5000);
 };
